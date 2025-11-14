@@ -158,27 +158,80 @@ export default function FlappyBird() {
       ctx.strokeRect(pipe.x, pipe.bottomY, PIPE_WIDTH, GAME_HEIGHT - pipe.bottomY);
     });
 
-    // Draw bird
-    ctx.fillStyle = '#FFD700';
+    // Draw turtle
+    const centerX = bird.x + BIRD_SIZE / 2;
+    const centerY = bird.y + BIRD_SIZE / 2;
+
+    // Draw flippers (back ones first)
+    ctx.fillStyle = '#2D5016';
+    // Back left flipper
     ctx.beginPath();
-    ctx.arc(bird.x + BIRD_SIZE / 2, bird.y + BIRD_SIZE / 2, BIRD_SIZE / 2, 0, Math.PI * 2);
+    ctx.ellipse(bird.x + 5, centerY + 8, 4, 8, Math.PI / 4, 0, Math.PI * 2);
     ctx.fill();
-    ctx.strokeStyle = '#FFA500';
+    // Back right flipper
+    ctx.beginPath();
+    ctx.ellipse(bird.x + 5, centerY - 8, 4, 8, -Math.PI / 4, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Draw shell (main body)
+    ctx.fillStyle = '#4A7C2C';
+    ctx.beginPath();
+    ctx.ellipse(centerX, centerY, BIRD_SIZE / 2, BIRD_SIZE / 2.5, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Shell pattern
+    ctx.strokeStyle = '#3A6C1C';
     ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.ellipse(centerX, centerY, BIRD_SIZE / 2, BIRD_SIZE / 2.5, 0, 0, Math.PI * 2);
     ctx.stroke();
 
-    // Draw eye
+    // Shell segments
+    ctx.beginPath();
+    ctx.moveTo(centerX - 8, centerY - 8);
+    ctx.lineTo(centerX + 8, centerY + 8);
+    ctx.moveTo(centerX - 8, centerY + 8);
+    ctx.lineTo(centerX + 8, centerY - 8);
+    ctx.moveTo(centerX, centerY - 10);
+    ctx.lineTo(centerX, centerY + 10);
+    ctx.stroke();
+
+    // Draw head
+    ctx.fillStyle = '#5A8C3C';
+    ctx.beginPath();
+    ctx.ellipse(bird.x + BIRD_SIZE + 2, centerY, 8, 6, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = '#4A7C2C';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    // Draw eyes
+    ctx.fillStyle = '#FFF';
+    ctx.beginPath();
+    ctx.arc(bird.x + BIRD_SIZE + 4, centerY - 2, 2.5, 0, Math.PI * 2);
+    ctx.fill();
     ctx.fillStyle = '#000';
     ctx.beginPath();
-    ctx.arc(bird.x + BIRD_SIZE / 2 + 5, bird.y + BIRD_SIZE / 2 - 3, 3, 0, Math.PI * 2);
+    ctx.arc(bird.x + BIRD_SIZE + 5, centerY - 2, 1.5, 0, Math.PI * 2);
     ctx.fill();
 
-    // Draw beak
-    ctx.fillStyle = '#FF4500';
+    // Draw front flippers
+    ctx.fillStyle = '#2D5016';
+    // Front left flipper
     ctx.beginPath();
-    ctx.moveTo(bird.x + BIRD_SIZE, bird.y + BIRD_SIZE / 2);
-    ctx.lineTo(bird.x + BIRD_SIZE + 8, bird.y + BIRD_SIZE / 2 - 3);
-    ctx.lineTo(bird.x + BIRD_SIZE + 8, bird.y + BIRD_SIZE / 2 + 3);
+    ctx.ellipse(bird.x + BIRD_SIZE - 8, centerY + 10, 4, 8, Math.PI / 3, 0, Math.PI * 2);
+    ctx.fill();
+    // Front right flipper
+    ctx.beginPath();
+    ctx.ellipse(bird.x + BIRD_SIZE - 8, centerY - 10, 4, 8, -Math.PI / 3, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Draw tail
+    ctx.fillStyle = '#5A8C3C';
+    ctx.beginPath();
+    ctx.moveTo(bird.x - 2, centerY);
+    ctx.lineTo(bird.x - 6, centerY - 3);
+    ctx.lineTo(bird.x - 6, centerY + 3);
     ctx.closePath();
     ctx.fill();
 
@@ -213,7 +266,7 @@ export default function FlappyBird() {
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-sky-400 to-sky-300 p-4">
       <div className="mb-6 text-center">
         <h1 className="text-5xl font-bold text-white drop-shadow-lg mb-2">
-          Flappy Bird
+          Flappy Turtle
         </h1>
         <div className="flex gap-8 justify-center text-white text-xl font-semibold">
           <div>Score: <span className="text-yellow-300">{score}</span></div>
@@ -235,7 +288,7 @@ export default function FlappyBird() {
             <div className="text-white text-center p-8">
               <h2 className="text-4xl font-bold mb-4">Ready to Play?</h2>
               <p className="text-xl mb-2">Click or press SPACE to start</p>
-              <p className="text-lg opacity-80">Keep the bird flying between the pipes!</p>
+              <p className="text-lg opacity-80">Keep the turtle flying between the pipes!</p>
             </div>
           </div>
         )}
@@ -256,7 +309,7 @@ export default function FlappyBird() {
 
       <div className="mt-6 text-center text-white max-w-md">
         <p className="text-sm opacity-80">
-          Controls: Click on the game or press SPACEBAR to make the bird jump
+          Controls: Click on the game or press SPACEBAR to make the turtle jump
         </p>
       </div>
     </div>

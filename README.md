@@ -1,10 +1,10 @@
-# Flappy Bird Game
+# Flappy Turtle Game
 
-A fun and addictive Flappy Bird game built with Next.js, React, TypeScript, and Tailwind CSS.
+A fun and addictive Flappy Turtle game built with Next.js, React, TypeScript, and Tailwind CSS.
 
 ## Features
 
-- 🎮 Classic Flappy Bird gameplay
+- 🐢 Classic Flappy gameplay with a cute flying turtle
 - 🎯 Score tracking with high score persistence
 - 🎨 Beautiful graphics and smooth animations
 - 📱 Responsive design
@@ -13,9 +13,9 @@ A fun and addictive Flappy Bird game built with Next.js, React, TypeScript, and 
 
 ## Game Controls
 
-- **Click** on the game canvas to make the bird jump
-- **Press SPACEBAR** to make the bird jump
-- Avoid the pipes and keep the bird flying!
+- **Click** on the game canvas to make the turtle jump
+- **Press SPACEBAR** to make the turtle jump
+- Avoid the pipes and keep the turtle flying!
 
 ## Tech Stack
 
@@ -63,7 +63,7 @@ npm start
 
 ## Deploy to Vercel
 
-The easiest way to deploy this Flappy Bird game is using [Vercel](https://vercel.com):
+The easiest way to deploy this Flappy Turtle game is using [Vercel](https://vercel.com):
 
 ### Option 1: Deploy with Vercel CLI
 
@@ -85,7 +85,7 @@ vercel
 4. Select your repository
 5. Click "Deploy"
 
-That's it! Your Flappy Bird game will be live on Vercel.
+That's it! Your Flappy Turtle game will be live on Vercel.
 
 ### Deploy Button
 
@@ -93,10 +93,10 @@ That's it! Your Flappy Bird game will be live on Vercel.
 
 ## Game Mechanics
 
-- **Gravity**: The bird constantly falls due to gravity
-- **Jump**: Each jump gives the bird an upward velocity
+- **Gravity**: The turtle constantly falls due to gravity
+- **Jump**: Each jump gives the turtle an upward velocity
 - **Pipes**: Randomly generated pipes move from right to left
-- **Collision**: Game ends if the bird hits a pipe, ground, or ceiling
+- **Collision**: Game ends if the turtle hits a pipe, ground, or ceiling
 - **Scoring**: Earn 1 point for each pipe successfully passed
 
 ## Development
@@ -120,11 +120,11 @@ r-flappy/
 You can customize the game by modifying constants in `components/FlappyBird.tsx`:
 
 - `GAME_WIDTH` / `GAME_HEIGHT` - Canvas dimensions
-- `BIRD_SIZE` - Size of the bird
+- `BIRD_SIZE` - Size of the turtle
 - `PIPE_WIDTH` - Width of pipes
 - `PIPE_GAP` - Gap between top and bottom pipes
-- `GRAVITY` - How fast the bird falls
-- `JUMP_STRENGTH` - How high the bird jumps
+- `GRAVITY` - How fast the turtle falls
+- `JUMP_STRENGTH` - How high the turtle jumps
 - `PIPE_SPEED` - How fast pipes move
 
 ## Contributing
@@ -142,4 +142,4 @@ MIT License - feel free to use this project for learning and fun!
 
 ---
 
-Enjoy the game! 🎮🐦
+Enjoy the game! 🐢🎮
