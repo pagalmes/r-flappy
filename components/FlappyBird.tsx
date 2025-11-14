@@ -32,7 +32,7 @@ export default function FlappyBird() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const birdRef = useRef<Bird>({ x: 100, y: GAME_HEIGHT / 2, velocity: 0 });
   const pipesRef = useRef<Pipe[]>([]);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | undefined>(undefined);
   const frameCountRef = useRef(0);
 
   const createPipe = useCallback((): Pipe => {
